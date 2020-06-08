@@ -9,14 +9,10 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.commons.CommonsMultipartFile;
 
 import com.model2.mvc.common.Page;
 import com.model2.mvc.common.Search;
@@ -55,12 +51,12 @@ public class ProductController {
 
 		System.out.println("/product/addProduct : GET");
 		
-		return "forward:/product/addProductView.jsp";
+		return "redirect:/product/addProductView.jsp";
 	}
 	
 	//@RequestMapping("/addProduct.do")
 	@RequestMapping(value="addProduct", method=RequestMethod.POST)
-	public String addProduct( @ModelAttribute("product") Product product ) throws Exception {
+	public String addProduct( @ModelAttribute("product") Product product, Model model) throws Exception {
 
 		//Map<String, MultipartFile> files = request.getFileMap();
 		//CommonsMultipartFile cmf = (CommonsMultipartFile)files.get("filename");
@@ -70,6 +66,7 @@ public class ProductController {
 		//Business Logic
 		productService.addProduct(product);
 		
+		model.addAttribute("product", product);
 		return "forward:/product/addProductView2.jsp";
 	}
 	
@@ -103,7 +100,7 @@ public class ProductController {
 	@RequestMapping(value="updateProduct", method=RequestMethod.POST)
 	public String updateProduct( @ModelAttribute("product") Product product , Model model) throws Exception{
 
-		System.out.println("/updateProduct.do");
+		System.out.println("/product/updateProduct");
 		//Business Logic
 		productService.updateProduct(product);
 		

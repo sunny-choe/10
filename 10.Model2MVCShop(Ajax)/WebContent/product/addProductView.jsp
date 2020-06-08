@@ -9,16 +9,16 @@
 
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
 
-<script src="code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript" src="../javascript/calendar.js"></script>
 <script type="text/javascript">
 
 function fncAddProduct(){
 	//Form 유효성 검증
- 	var name = $("input[name = 'prodName']").value;
-	var detail = $("input[name = 'prodDetail']").value;
-	var manuDate = $("input[name = 'manuDate']").value;
-	var price = $("input[name = 'price']").value;
+ 	var name = $("input[name = 'prodName']").val();
+	var detail = $("input[name = 'prodDetail']").val();
+	var manuDate = $("input[name = 'manuDate']").val();
+	var price = $("input[name = 'price']").val();
 
 	if(name == null || name.length<1){
 		alert("상품명은 반드시 입력하여야 합니다.");
@@ -37,18 +37,16 @@ function fncAddProduct(){
 		return;
 	}
 
-	$("form").attr("method", "POST");
-	$("form").attr("action", "/product/addProduct");
-	$("form").submit();
+	$("form").attr("method", "POST").attr("action", "/product/addProduct").submit();
 }
 
 $(function(){
 	
-	$(".ct_btn01:contains('등록')").on("click", function(){
+	$("td.ct_btn01:contains('등록')").on("click", function(){
 		fncAddProduct();
 	});
 	
-	$(".ct_btn01:contatins('취소')").on("click", function(){
+	$("td.ct_btn01:contains('취소')").on("click", function(){
 		$("form")[0].reset;
 	});
 
