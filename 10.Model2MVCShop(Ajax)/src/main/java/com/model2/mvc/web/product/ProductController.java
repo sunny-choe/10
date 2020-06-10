@@ -62,6 +62,7 @@ public class ProductController {
 		//CommonsMultipartFile cmf = (CommonsMultipartFile)files.get("filename");
 		
 		System.out.println("/product/addProduct : POST");
+//		System.out.println("PRODUCTDATE"+product.getManuDate());
 		product.setManuDate(product.getManuDate().replaceAll("-", ""));
 		//Business Logic
 		productService.addProduct(product);
@@ -104,7 +105,6 @@ public class ProductController {
 		//Business Logic
 		productService.updateProduct(product);
 		
-		//		
 		return "redirect:/product/getProduct?prodNo="+product.getProdNo();
 	}
 	

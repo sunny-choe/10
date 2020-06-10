@@ -17,7 +17,7 @@
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
 <title>상품상세조회</title>
 
-<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 
 $(function() {
@@ -27,7 +27,8 @@ $(function() {
 	});
 	
 	$("td.ct_btn01:contains('수정')").on(	"click", function() {
-		$("form").attr("method", "POST").attr("action",	"/product/updateProduct").attr("target", "_parent").submit();
+		/*  $("form").attr("method", "POST").attr("action",	"/product/updateProduct").attr("target", "_parent").submit(); */
+		 $("form").attr("method", "POST").attr("action", "/product/updateProduct?prodNo=${product.prodNo}").submit(); 
 	});
 	
 });
@@ -146,12 +147,14 @@ $(function() {
 					<img src="/images/ct_btnbg01.gif" width="17" height="23"/>
 				</td>
 				<td background="/images/ct_btnbg02.gif" class="ct_btn01" style="padding-top: 3px;">
-					<c:if test="${ menu == 'manage' }">
-						<a herf="/product/updateProduct?prodNo=${product.prodNo}">수정</a>
-					</c:if>
+					<%--<c:if test="${ menu == 'manage' }"> 
+						<a herf="/product/updateProduct?prodNo=${product.prodNo}">--%>
+						수정
+					<%--	</a>
+					 </c:if>
 					<c:if test="${ menu == 'search' }">
-						<a herf="/product/addPerchase?prodNo=${product.prodNo}">구매</a>
-					</c:if>
+						<a herf="/product/addPurchase?prodNo=${product.prodNo}">구매</a>
+					</c:if> --%>
 				</td>
 				
 				

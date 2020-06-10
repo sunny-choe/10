@@ -21,7 +21,7 @@
 
 <link rel="stylesheet" href="/css/admin.css" type="text/css">
 
-<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script type="text/javascript">
 
 
@@ -52,8 +52,8 @@ function fncGetList(currentPage) {
 			<table width="100%" border="0" cellspacing="0" cellpadding="0">
 				<tr>
 					<td width="93%" class="ct_ttl01">
-					<c:if test="${param.menu=='manage'}">판매 상품 관리</c:if>
-					<c:if test="${param.menu=='search'}">상품 목록 조회</c:if>
+					<c:if test="${param.menu=='manage'}">판매상품관리</c:if>
+					<c:if test="${param.menu=='search'}">상품목록조회</c:if>
 					</td>
 				</tr>
 			</table>
@@ -127,7 +127,7 @@ function fncGetList(currentPage) {
 			<td align="center">${ i }</td>
 		<td></td>
 		<td align="left">
-			<c:if test="${param.menu=='manage'}">
+			<%-- <c:if test="${param.menu=='manage'}">
 					<c:choose>
 						<c:when test="${product.proTranCode=='0'}">
 							<a href="/product/getProduct?prodNo=${product.prodNo}&menu=manage">${product.prodName}</a>
@@ -146,7 +146,15 @@ function fncGetList(currentPage) {
 							${product.prodName}
 						</c:otherwise>
 					</c:choose>
-				</c:if>
+				</c:if> --%>
+				
+			<c:if test="${param.menu=='manage'}">
+				<a href="/product/getProduct?prodNo=${product.prodNo}&menu=manage">${product.prodName}</a>
+			</c:if>
+			<c:if test="${param.menu=='search'}">
+				<a href="/product/getProduct?prodNo=${product.prodNo}&menu=search">${product.prodName}</a>
+			</c:if>
+				
 		</td>
 		<td></td>
 		<td align="left">${product.price}</td>
