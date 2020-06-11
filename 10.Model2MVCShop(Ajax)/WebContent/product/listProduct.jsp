@@ -41,6 +41,12 @@
 	  body {
             padding-top : 50px;
         }
+      
+/*       td:nth-child(2):hover {
+      	width:300px;
+      	height:300px;
+      	background:url("/images/uploadFiles/"+"${product.fileName}");
+      } */
     </style>
     
      <!--  ///////////////////////// JavaScript ////////////////////////// -->
@@ -79,7 +85,7 @@
 		 $(function() {
 			 
 			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			$(  "td:nth-child(5) > i" ).on("click" , function() {
+			$(  "td:nth-child(5) > i" ).on("mouseover" , function() {
 
 					var prodNo = $(this).next().val();
 				
@@ -96,7 +102,7 @@
 
 									var displayValue = "<h6>"
 																+"상품번호 : "+JSONData.prodNo+"<br/>"
-																+"상 품 명 : "+JSONData.prodName+"<br/>"
+																+"상품명 : "+JSONData.prodName+"<br/>"
 																+"가   격 : "+JSONData.price+"<br/>"
 																+"등록일자 : "+JSONData.regDate+"<br/>"
 																+"</h6>";

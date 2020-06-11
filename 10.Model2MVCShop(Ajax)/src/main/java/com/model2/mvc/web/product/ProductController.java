@@ -108,13 +108,28 @@ public class ProductController {
 	
 	//@RequestMapping("/updateProduct.do")
 	@RequestMapping(value="updateProduct", method=RequestMethod.POST)
-	public String updateProduct( @ModelAttribute("product") Product product , Model model) throws Exception{
+	public String updateProduct( @ModelAttribute("product") Product product , @RequestParam("fileUpload") MultipartFile fileUpload) throws Exception{
 
 		System.out.println("/product/updateProduct");
+
+		String path = "C:\\Users\\user\\git\\10\\"
+				+ "10.Model2MVCShop(Ajax)\\WebContent\\images\\uploadFiles\\";
+		
+		String originalFileName = fileUpload.getOriginalFilename();
+		
+		File file = new File(path + originalFileName);
+		fileUpload.transferTo(file);
+		
+		product.setFileName(originalFileName);
+		
+//		System.out.println("PRODUCTDATE"+product.getManuDate());
+		product.setManuDate(product.getManuDate().replaceAll("-", ""));
+		
 		//Business Logic
 		productService.updateProduct(product);
 		
 		return "redirect:/product/getProduct?prodNo="+product.getProdNo();
+		//return "forward:/product/updateProduct.jsp";
 	}
 	
 	//@RequestMapping("/listProduct.do")
