@@ -32,7 +32,7 @@ public class ProductRestController {
 	@RequestMapping( value="json/getProduct/{prodNo}", method=RequestMethod.GET )
 	public Product getProduct( @PathVariable int prodNo ) throws Exception{
 		
-		System.out.println("/user/json/getProduct : GET");
+		System.out.println("/product/json/getProduct : GET");
 		
 		//Business Logic
 		return productService.getProduct(prodNo);

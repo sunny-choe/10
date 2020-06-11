@@ -48,7 +48,23 @@
 			});
 		});	
 	
+		//왜 안돼?
+		$(function() {
+			$("input[name='manuDate']").on("click", function(){
+				$(this).show_calendar('document.detailForm.manuDate', document.detailForm.manuDate.value);
+			});
+		});
+		
 
+		/* 		//==>"calendar" Event 처리 및 연결
+				 $(function() {
+					//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+					 $("button.btn.btn-info").on("click" , function() {
+						show_calendar("$.manuDate", $.manuDate.val());
+					});
+				});	 */
+	
+		
         function fncAddProduct(){
             //Form 유효성 검증
             var name = $("input[name = 'prodName']").val();
@@ -73,20 +89,10 @@
                 return;
             }
 
-            $("form").attr("method", "POST").attr("action", "/product/addProduct").submit();
+            $("form").attr("method", "POST").attr("enctype","multipart/form-data").attr("action", "/product/addProduct").submit();
         }
 
 				
-		
-/* 		//==>"calendar" Event 처리 및 연결
-		 $(function() {
-			//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
-			 $("button.btn.btn-info").on("click" , function() {
-				show_calendar("$.manuDate", $.manuDate.val());
-			});
-		});	 */
-
-			
 	</script>		
     
 </head>
@@ -134,9 +140,9 @@
 		    <div class="col-sm-4">
 		      <input type="text" class="form-control" id="manuDate" name="manuDate" placeholder="제조일자">
 		    </div>
-            <div class="col-sm-3">
+            <!-- <div class="col-sm-3">
 		      <button type="button" class="btn btn-info"><img src="../images/ct_icon_datek.gif" width="15" height="15"></button>
-		    </div>
+		    </div> -->
 		  </div>
 		  
 		  <div class="form-group">
@@ -149,7 +155,7 @@
 		  <div class="form-group">
 		    <label for="ssn" class="col-sm-offset-1 col-sm-3 control-label">상품이미지</label>
 		    <div class="col-sm-4">
-		      <input type="text" class="form-control" id="fileName" name="fileName" placeholder="상품이미지">
+		      <input type="file" class="form-control" id="fileName" name="fileUpload" placeholder="상품이미지">
 		    </div>
 		  </div>
 

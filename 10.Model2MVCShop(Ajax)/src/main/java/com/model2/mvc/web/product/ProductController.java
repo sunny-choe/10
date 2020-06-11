@@ -1,5 +1,6 @@
 package com.model2.mvc.web.product;
 
+import java.io.File;
 import java.util.Map;
 
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.model2.mvc.common.Page;
 import com.model2.mvc.common.Search;
@@ -56,18 +58,25 @@ public class ProductController {
 	
 	//@RequestMapping("/addProduct.do")
 	@RequestMapping(value="addProduct", method=RequestMethod.POST)
-	public String addProduct( @ModelAttribute("product") Product product, Model model) throws Exception {
+	public String addProduct( @ModelAttribute("product") Product product, @RequestParam("fileUpload") MultipartFile fileUpload) throws Exception {
 
-		//Map<String, MultipartFile> files = request.getFileMap();
-		//CommonsMultipartFile cmf = (CommonsMultipartFile)files.get("filename");
-		
 		System.out.println("/product/addProduct : POST");
+		
+		String path = "C:\\Users\\user\\git\\10\\"
+				+ "10.Model2MVCShop(Ajax)\\WebContent\\images\\uploadFiles\\";
+		
+		String originalFileName = fileUpload.getOriginalFilename();
+		
+		File file = new File(path + originalFileName);
+		fileUpload.transferTo(file);
+		
+		product.setFileName(originalFileName);
+		
 //		System.out.println("PRODUCTDATE"+product.getManuDate());
 		product.setManuDate(product.getManuDate().replaceAll("-", ""));
 		//Business Logic
 		productService.addProduct(product);
 		
-		model.addAttribute("product", product);
 		return "forward:/product/addProductView2.jsp";
 	}
 	
