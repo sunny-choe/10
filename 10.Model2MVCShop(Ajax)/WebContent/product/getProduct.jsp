@@ -144,6 +144,9 @@
 	  			<button type="button" class="btn btn-forward">√Îº“</button>
 	  		</div>
 		</div>
+		
+
+		<br/> 
   		</c:if>
 			
 		<br/> 
