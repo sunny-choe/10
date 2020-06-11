@@ -34,7 +34,43 @@
    	</style>
    	
      <!--  ///////////////////////// JavaScript ////////////////////////// -->
-	 	
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	a4e75e3b93f46e39e7fe85ca1aa9a785"></script> <!-- java script key 복붙 -->
+	
+	<script type="text/javascript">
+	
+		var map = null;
+	
+		$(function() {
+			
+			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+		   
+			mapOption = { 
+		        center: new daum.maps.LatLng(37.499488, 127.029289), // 지도의 중심좌표
+		        level: 3 // 지도의 확대 레벨
+		    };
+	
+			map = new daum.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+	
+		});
+		
+		function setCenter() {            
+		    // 이동할 위도 경도 위치를 생성합니다 
+		    var moveLatLon = new daum.maps.LatLng(37.499488, 127.029289);
+		    
+		    // 지도 중심을 이동 시킵니다
+		    map.setCenter(moveLatLon);
+		}
+	
+/* 		function panTo() {
+		    // 이동할 위도 경도 위치를 생성합니다 
+		    var moveLatLon = new daum.maps.LatLng(37.499488, 127.029289);
+		    
+		    // 지도 중심을 부드럽게 이동시킵니다
+		    // 만약 이동할 거리가 지도 화면보다 크면 부드러운 효과 없이 이동합니다
+		    map.panTo(moveLatLon);            
+		}         */
+	
+	</script>		 	
 	
 </head>
 	
@@ -55,13 +91,12 @@
 
 	<!-- 참조 : http://getbootstrap.com/css/   : container part..... -->
 	<div class="container">
-        <h3>나폴레옹은 이렇게 말했다.</h3>
-        <p>"오늘 나의 불행은 언젠가 내가 잘못 보낸 시간의 보복이다."</p>
-  	 	<h3>"... 장벽은 절실하게 원하지 않는 사람들을 걸러내려고 존재합니다. 장벽은. 당신이 아니라 '다른' 사람들을 멈추게 하려고 거기 있는 것이지요."</h3>
-         <h3>혜광스님</h3>
-         <p>행복한 삶의 비결은.</p>
-         <p>좋아하는 일을 하는 것이 아리라,</p>
-         <p>지금 하는 일을 좋아하는 것입니다.</p>
+        	<div id="map" style="width:100%;height:350px;"></div>
+	<p>
+	<p>
+	    <button onclick="setCenter()">비트캠프/ 서울특별시 서초구 서초4동 강남대로 459</button> 
+	    <!-- <button onclick="panTo()">지도 중심좌표 부드럽게 이동시키기</button>  -->
+	</p></p>
   	 </div>
 
 </body>

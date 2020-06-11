@@ -138,7 +138,7 @@
 		  <div class="form-group">
 		    <label for="manuDate" class="col-sm-offset-1 col-sm-3 control-label">力炼老磊</label>
 		    <div class="col-sm-4">
-		      <input type="text" class="form-control" id="manuDate" name="manuDate" placeholder="力炼老磊">
+		      <input type="date" class="form-control" id="manuDate" name="manuDate" placeholder="力炼老磊">
 		    </div>
             <!-- <div class="col-sm-3">
 		      <button type="button" class="btn btn-info"><img src="../images/ct_icon_datek.gif" width="15" height="15"></button>

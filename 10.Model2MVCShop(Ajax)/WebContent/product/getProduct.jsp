@@ -1,6 +1,7 @@
 <%@ page contentType="text/html; charset=EUC-KR" %>
 <%@ page pageEncoding="EUC-KR"%>
 
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 
@@ -127,7 +128,7 @@
 		
 		<hr/>
         
-		<c:if test="${sessionScope.user.role == 'admin'}">
+		<c:if test="${param.menu == 'manage'}">
 		<div class="row">
 	  		<div class="col-md-12 text-center ">
 	  			<button type="button" class="btn btn-primary">수정</button>
@@ -136,7 +137,7 @@
 		</div>
 		</c:if>
 				
-		<c:if test="${sessionScope.user.role == 'user'}">
+		<c:if test="${param.menu == 'search'}">
 		<div class="row">
 	  		<div class="col-md-12 text-center ">
 	  			<button type="button" class="btn btn-purchase">구매</button>
