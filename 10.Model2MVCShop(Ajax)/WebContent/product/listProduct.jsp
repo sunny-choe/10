@@ -150,7 +150,7 @@
 			    
 				  <div class="form-group">
 				    <select class="form-control" name="searchCondition" >
-                        <c:if test="${param.menu=='manage'}">
+                        <c:if test="${param.menu=='manage'||param.menu=='search'}">
                             <option value="0" ${ ! empty search.searchCondition && search.searchCondition==0 ? "selected" : "" }>상품번호</option>
 							<option value="1" ${ ! empty search.searchCondition && search.searchCondition==0 ? "selected" : "" }>상품명</option>
 							<option value="2" ${ ! empty search.searchCondition && search.searchCondition==1 ? "selected" : "" }>상품가격</option>
