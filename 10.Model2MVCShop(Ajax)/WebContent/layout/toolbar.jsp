@@ -83,7 +83,7 @@
 	                     </ul>
 	                 </li>
 	                 
-	                 <li><a href="#">etc...</a></li>
+	                 <li><a href="#">게시판</a></li>
 	             </ul>
 	             
 	             <ul class="nav navbar-nav navbar-right">
@@ -154,5 +154,10 @@
 	 	$( "a:contains('최근 본 상품')" ).on("click" , function() {
 	 		//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
 			self.location = "/history.jsp";
+		});
+	 	
+	 	$( "a:contains('게시판')" ).on("click" , function() {
+	 		//==> DOM Object GET 3가지 방법 ==> 1. $(tagName) : 2.(#id) : 3.$(.className)
+			self.location = "/board/list";
 		});
 	</script>  
