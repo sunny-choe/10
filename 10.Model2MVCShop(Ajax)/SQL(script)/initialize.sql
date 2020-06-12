@@ -1,4 +1,4 @@
-
+DROP TABLE tbl_board;
 DROP TABLE transaction;
 DROP TABLE product;
 DROP TABLE users;
