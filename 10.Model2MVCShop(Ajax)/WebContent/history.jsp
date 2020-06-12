@@ -45,7 +45,7 @@ function history(){
 			}
 		}
 	}
-		out.println(history);
+		//out.println(history);
 %>
 
 
@@ -71,6 +71,5 @@ function history(){
 	</td>
 </tr>
 
-i frame
 </body>
 </html>
