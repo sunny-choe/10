@@ -34,7 +34,7 @@
    	</style>
    	
      <!--  ///////////////////////// JavaScript ////////////////////////// -->
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	a4e75e3b93f46e39e7fe85ca1aa9a785"></script> <!-- java script key 복붙 -->
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=	앱키!"></script> <!-- java script key 복붙 -->
 	
 	<script type="text/javascript">
 	
